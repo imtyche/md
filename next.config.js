@@ -2,6 +2,10 @@
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
+    output: 'standalone',
+    images: {
+        unoptimized: true,
+    },
     transpilePackages: ['html-docx-js-typescript'],
     webpack: (config) => {
         config.resolve.fallback = {
