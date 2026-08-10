@@ -21,7 +21,7 @@ body {
   overflow: hidden;
 }
 
-#root {
+#__next {
   height: 100%;
 }
 
@@ -49,6 +49,35 @@ body {
   display: flex;
   height: 100vh;
   background: #0b0b0f;
+}
+
+/* 全屏预览模式 */
+.app-container.preview-only aside {
+  display: none;
+}
+
+.app-container.preview-only main {
+  padding: 0 !important;
+}
+
+.app-container.preview-only .workspace-card {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.app-container.preview-only .split-view textarea {
+  display: none !important;
+}
+
+.app-container.preview-only .preview-pane {
+  border-left: none !important;
+  padding: 40px 60px !important;
+}
+
+/* Preview 全屏样式 */
+.preview-fullscreen {
+  border-left: none !important;
+  padding: 40px 60px !important;
 }
 
 /* Sidebar */
@@ -429,42 +458,9 @@ main {
   background: #14141e;
 }
 
-/* Preview Only */
-.app-container.preview-only .split-view textarea {
-  display: none;
-}
-
-.app-container.preview-only .preview-pane {
-  border-left: none;
-}
-
-#exitPreview {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #2d2d42;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 24px;
-  color: #fff;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-}
-
-#exitPreview:hover {
-  background: #40405a;
-  transform: scale(1.02);
-}
-
 /* Hide preview */
 .workspace-card.hide-preview .preview-pane {
-  display: none;
+  display: none !important;
 }
 
 .workspace-card.hide-preview .split-view textarea {
@@ -520,5 +516,10 @@ main {
 
   main {
     padding: 10px;
+  }
+
+  .preview-fullscreen,
+  .app-container.preview-only .preview-pane {
+    padding: 20px !important;
   }
 }

@@ -1,14 +1,20 @@
 'use client'
 
-import { useEffect, useRef, forwardRef, RefObject } from 'react'
+import { forwardRef, CSSProperties } from 'react'
 
 interface PreviewProps {
     html: string
+    style?: CSSProperties
+    className?: string
 }
 
-const Preview = forwardRef<HTMLDivElement, PreviewProps>(({ html }, ref) => {
+const Preview = forwardRef<HTMLDivElement, PreviewProps>(({ html, style, className }, ref) => {
     return (
-        <div ref={ref} className="preview-pane">
+        <div
+            ref={ref}
+            className={`preview-pane ${className || ''}`}
+            style={style}
+        >
             <article className="markdown-body markdown-dark" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
     )

@@ -434,11 +434,11 @@ export default function Home() {
                       onScroll={syncScroll}
                   />
               )}
-              <Preview ref={previewRef} html={parsedHtml} style={{
-                flex: 1,
-                borderLeft: isPreviewOnly ? 'none' : '1px solid #1c1c2a',
-                padding: isPreviewOnly ? '30px 40px' : '20px 28px',
-              }} />
+              <Preview
+                  ref={previewRef}
+                  html={parsedHtml}
+                  className={isPreviewOnly ? 'preview-fullscreen' : ''}
+              />
             </div>
           </div>
         </main>
